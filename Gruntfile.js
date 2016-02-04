@@ -221,11 +221,11 @@ module.exports = function (grunt) {
                 blockReplacements: {
                     js: (block) => {
                         var scripts = [];
-                        scripts.push(getScript(block.dest));
                         block.src.forEach((src)=> {
                             if (src.startsWith("//"))
                                 scripts.push(getScript(src));
                         });
+                        scripts.push(getScript(block.dest));
                         return scripts.join(require('os').EOL);
 
                         function getScript(input) {
