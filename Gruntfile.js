@@ -12,7 +12,7 @@ module.exports = function (grunt) {
     var config = {
         app: 'app',
         dist: 'dist',
-        ngModule: 'anb'
+        ngModule: 'app'
     };
 
     grunt.initConfig({
@@ -203,7 +203,7 @@ module.exports = function (grunt) {
                 flow: {
                     html: {
                         steps: {
-                            js: ['concat', 'uglifyjs'],
+                            js: ['concat'],
                             css: ['cssmin']
                         },
                         post: {}
@@ -212,6 +212,25 @@ module.exports = function (grunt) {
             }
         },
 
+        babel: {
+            options: {
+                presets: ['es2015']
+            },
+            dist: {
+                files: {
+                    'dist/scripts/scripts.js': 'dist/scripts/scripts.js'
+                }
+            }
+        },
+
+        uglify: {
+            dist: {
+                files: {
+                    'dist/scripts/scripts.js': 'dist/scripts/scripts.js',
+                    'dist/scripts/vendor.js': 'dist/scripts/vendor.js'
+                }
+            }
+        },
 
         usemin: {
             html: ['<%= config.dist %>/{,*/}*.html'],
@@ -346,7 +365,7 @@ module.exports = function (grunt) {
     });
 
 
-    grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
+    grunt.registerTask('serve', 'Compile then start a connect web server', (target)=> {
         if (target === 'dist') {
             return grunt.task.run(['build', 'connect:dist:keepalive']);
         }
@@ -360,11 +379,6 @@ module.exports = function (grunt) {
             'connect:livereload',
             'watch'
         ]);
-    });
-
-    grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
-        grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-        grunt.task.run(['serve:' + target]);
     });
 
     grunt.registerTask('test', [
@@ -388,8 +402,9 @@ module.exports = function (grunt) {
         'ngAnnotate',
         'copy:dist',
         'cssmin',
-        'uglify',
         'usemin',
+        'babel',
+        'uglify',
         'clean:template'
     ]);
 
