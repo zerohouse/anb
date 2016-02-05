@@ -2,26 +2,45 @@
 <html ng-app="app">
 <head>
     <meta charset="utf-8">
-    <title>AppTitle</title>
+    <title>appTitle</title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="icon" href="/resource/favicon.ico"/>
     <link rel='apple-touch-icon' href='/resource/favicon.ico'/>
     <!-- build:css(.) /styles/vendor.css -->
     <!-- bower:css -->
+    <link rel='stylesheet' href='/bower_components/angular-material/angular-material.css'/>
     <!-- endbower -->
     <!-- endbuild -->
+
+    <style type="text/css">
+        [ng-cloak] {
+            display: none;
+        }
+    </style>
+
     <!-- build:css({.tmp,app}) /styles/main.css -->
     <!-- include: "type": "css", "files": "**/*.css" -->
-    
+
+
+
     <!-- /include -->
     <!-- endbuild -->
 </head>
+
+<body ng-cloak layout="column">
+
+<div ng-include="'/html/main.html'" flex layout="column"></div>
 
 <!-- build:js(.) /scripts/vendor.js -->
 <!-- bower:js -->
 <script src="/bower_components/angular/angular.js"></script>
 <script src="/bower_components/angular-essential/angular-essential.js"></script>
+<script src="/bower_components/angular-animate/angular-animate.js"></script>
+<script src="/bower_components/angular-aria/angular-aria.js"></script>
+<script src="/bower_components/angular-messages/angular-messages.js"></script>
+<script src="/bower_components/angular-material/angular-material.js"></script>
+<script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -29,7 +48,6 @@
 <!-- include: "type": "js", "files": "**/*.js" -->
 <script src="/app.js"></script>
 <script src="/app.test.js"></script>
-<script src="/template.js"></script>
 <!-- /include -->
 <!-- endbuild -->
 

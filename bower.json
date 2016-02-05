@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "dependencies": {
     "angular": "~1.4.9",
-    "angular-essential": "*"
+    "angular-essential": "*",
+    "angular-material": "^1.0.4",
+    "angular-ui-router": "^0.2.17"
   },
   "homepage": "https://github.com/zerohouse/?",
   "authors": [

@@ -7,7 +7,6 @@ angular.module('app').controller('test', function () {
 
 });
 
-
 class AnimalES6 {
     constructor(name) {
         this.name = name;

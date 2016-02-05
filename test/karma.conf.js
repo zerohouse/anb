@@ -12,6 +12,11 @@ module.exports = function(config) {
             // bower:js
             'bower_components/angular/angular.js',
             'bower_components/angular-essential/angular-essential.js',
+            'bower_components/angular-animate/angular-animate.js',
+            'bower_components/angular-aria/angular-aria.js',
+            'bower_components/angular-messages/angular-messages.js',
+            'bower_components/angular-material/angular-material.js',
+            'bower_components/angular-ui-router/release/angular-ui-router.js',
             // endbower
             'node_modules/angular-mocks/angular-mocks.js',
 

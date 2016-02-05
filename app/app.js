@@ -1,1 +1,5 @@
-angular.module('app', ['angular.essential']);
+'use strict';
+angular.module('app', [
+    'angular.essential',
+    'ngMaterial'
+]);
